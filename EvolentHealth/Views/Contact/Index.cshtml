@@ -1,0 +1,69 @@
+﻿@model  IEnumerable<EvolentHealth.Models.Contact>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br />
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Contact Form</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a class="btn btn-info" asp-action="Create"><i class="fas fa-address-book"></i> Add New Contact</a>
+    </div>
+    <br />
+    <div class="col-12">
+        <table class="table table-striped border">
+            <tr class="table-info">
+                <th>
+                    @Html.DisplayNameFor(m => m.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.PhoneNbr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Status)
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.PhoneNbr)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Status)
+                </td>
+                <td class="text-right">
+                    <div class="btn-group" role="group">
+                        <a type="button" class="btn btn-primary" href="@Url.Action("Edit/"+item.Id)"><i class="fas fa-edit"></i></a>
+                        <form method="post" action="Delete">
+                            <button onclick="if (!confirm('Are you sure you want to delete this record ?')) { return false; }" type="submit" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></button>
+                        </form>
+                        @*<a type="button" class="btn btn-primary" href="@Url.Action("Delete/"+item.Id)">Delete</a>*@
+                    </div>
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
+

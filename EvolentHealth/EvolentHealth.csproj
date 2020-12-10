@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\**" />
+    <Compile Remove="Models\ViewModels\**" />
+    <Compile Remove="Views\Bike\**" />
+    <Compile Remove="Views\Model\**" />
+    <Content Remove="Areas\**" />
+    <Content Remove="Models\ViewModels\**" />
+    <Content Remove="Views\Bike\**" />
+    <Content Remove="Views\Model\**" />
+    <EmbeddedResource Remove="Areas\**" />
+    <EmbeddedResource Remove="Models\ViewModels\**" />
+    <EmbeddedResource Remove="Views\Bike\**" />
+    <EmbeddedResource Remove="Views\Model\**" />
+    <None Remove="Areas\**" />
+    <None Remove="Models\ViewModels\**" />
+    <None Remove="Views\Bike\**" />
+    <None Remove="Views\Model\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\BikeController.cs" />
+    <Compile Remove="Controllers\MakeController.cs" />
+    <Compile Remove="Controllers\ModelController.cs" />
+    <Compile Remove="Migrations\20201021144541_AddMakeModelToDbUpdate.cs" />
+    <Compile Remove="Migrations\20201021144541_AddMakeModelToDbUpdate.Designer.cs" />
+    <Compile Remove="Models\Bike.cs" />
+    <Compile Remove="Models\Make.cs" />
+    <Compile Remove="Models\Model.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="cloudscribe.Pagination.Models" Version="1.1.0" />
+    <PackageReference Include="cloudscribe.Web.Pagination" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\bike\" />
+  </ItemGroup>
+
+</Project>

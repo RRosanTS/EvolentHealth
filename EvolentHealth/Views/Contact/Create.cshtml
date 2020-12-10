@@ -1,0 +1,56 @@
+﻿@model  EvolentHealth.Models.Contact
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/>
+<h2 class="text-info">
+    Add Contact
+</h2>
+
+<form method="post" action="Create">
+    <div class="form-group" row>
+        <div class="col-2">
+            <label asp-for="FirstName"></label>
+        </div>
+        <div class="col-4">
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="col-2">
+            <label asp-for="LastName"></label>
+        </div>
+        <div class="col-4">
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="col-2">
+            <label asp-for="Email"></label>
+        </div>
+        <div class="col-4">
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="col-2">
+            <label asp-for="PhoneNbr"></label>
+        </div>
+        <div class="col-4">
+            <input asp-for="PhoneNbr" class="form-control" />
+        </div>
+        <div class="col-2">
+            <label asp-for="Status"></label>
+        </div>
+        <div class="col-4">
+            @foreach (var sta in Model.Statuses)
+            {
+                <input type="radio" asp-for="Status" value="@sta" />@sta<br />
+            }
+            <span asp-validation-for="Status" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Create" />
+            <a asp-action="Index" class="btn btn-success">Back</a>
+        </div>
+    </div>    
+</form>
